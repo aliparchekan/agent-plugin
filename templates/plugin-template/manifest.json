@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "package_type": "plugin",
+  "id": "{{PLUGIN_ID}}",
+  "name": "[TODO: 中文插件名]",
+  "description": "[TODO: 一句话描述]",
+  "display_name": {
+    "en": "[TODO: EN display name]",
+    "zh": "[TODO: 中文展示名]"
+  },
+  "display_description": {
+    "en": "[TODO: EN description]",
+    "zh": "[TODO: 中文描述，建议 40-50 字]"
+  },
+  "category": "[TODO: category]",
+  "source": "local",
+  "avatar": "",
+  "default_init_input": {
+    "zh": "[TODO: 中文首次对话提示，同 quick_inputs[0].zh]",
+    "en": "[TODO: English first prompt, same as quick_inputs[0].en]"
+  },
+  "tags": [
+    {
+      "en": "[TODO: Tag1 EN]",
+      "zh": "[TODO: 标签1]"
+    },
+    {
+      "en": "[TODO: Tag2 EN]",
+      "zh": "[TODO: 标签2]"
+    },
+    {
+      "en": "[TODO: Tag3 EN]",
+      "zh": "[TODO: 标签3]"
+    }
+  ],
+  "quick_inputs": [
+    {
+      "en": "[TODO: Prompt1 EN, same as default_init_input.en]",
+      "zh": "[TODO: 提示词1，同 default_init_input.zh]"
+    },
+    {
+      "en": "[TODO: Prompt2 EN]",
+      "zh": "[TODO: 提示词2]"
+    },
+    {
+      "en": "[TODO: Prompt3 EN]",
+      "zh": "[TODO: 提示词3]"
+    }
+  ]
+}
