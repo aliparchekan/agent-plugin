@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 构建产物（不进 git；发布走 Hub）
+dist/
+build/
+
+# 开发态
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# 本地环境
+.env
+.env.local
+
+# openjiuwen 运行时产物（本地热加载校验可能产生）
+logs/

@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "插件改名迁移映射：old-id -> new-id。id 一经发布不可变；确需改名时新建插件并在此登记，发布流程据此在 Hub 侧维护别名。初始为空。",
+  "renames": {}
+}

@@ -1,0 +1,55 @@
+name: PR Quality Check
+
+# PR 质量门禁：结构检查 + L0/L1 校验 + catalog 一致性 + 密钥扫描 + 单元测试。
+# 本地等价命令：python scripts/pr_check.py
+# L2 热加载需要 openjiuwen 运行环境，见下方 hot-load 作业（按仓库变量开关）。
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  quality-gate:
+    name: Quality Gate (L0/L1 + catalog + secrets + tests)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: PR quality check
+        run: python scripts/pr_check.py
+
+  hot-load:
+    # L2 热加载（真实 import openjiuwen 并实例化 tool/rail）。
+    # openjiuwen 运行时进入 CI 的通道确定后，把仓库变量 ENABLE_HOT_LOAD 置 true
+    # 启用本作业（Settings -> Secrets and variables -> Actions -> Variables）。
+    if: ${{ vars.ENABLE_HOT_LOAD == 'true' }}
+    name: L2 Hot Load
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install openjiuwen runtime
+        run: |
+          # TODO: openjiuwen 尚未发布到公开源；临时方案见 docs/hub-publish.md
+          # （使用 jiuwenswarm 主仓 .venv / 私有 wheel 源）。
+          pip install openjiuwen
+
+      - name: L2 hot-load validation
+        run: python scripts/validate.py --require-hot-load

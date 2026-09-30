@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "plugins": [
+    {
+      "id": "example-plugin",
+      "version": "1.0.0",
+      "display_name": {
+        "en": "Example Plugin",
+        "zh": "示例插件"
+      },
+      "display_description": {
+        "en": "Official reference plugin demonstrating the standard layout of skills, tools and rails in one package.",
+        "zh": "官方参考插件：用 skill 指导、tool 执行、rail 监听三类组件演示插件包的标准写法。"
+      },
+      "category": "Engineering",
+      "tags": [
+        {
+          "en": "Text",
+          "zh": "文本"
+        },
+        {
+          "en": "Statistics",
+          "zh": "统计"
+        },
+        {
+          "en": "Example",
+          "zh": "示例"
+        }
+      ],
+      "capabilities": {
+        "skills": [
+          "usage-report"
+        ],
+        "tools": [
+          "WordCountTool"
+        ],
+        "rails": [
+          "TurnCounterRail"
+        ]
+      },
+      "path": "plugins/example-plugin"
+    }
+  ]
+}
